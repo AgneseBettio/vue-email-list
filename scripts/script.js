@@ -7,14 +7,24 @@
 const app = new Vue({
     el: '#root',
 
-    data : {
+    data: {
+        randomEmailList: [],
+    },
+    mounted() {
+        const ajaxEmails = [];
+        for (let i = 0; i < 10; i++) {
+            axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+                .then((resp) => {
+                    console.log(resp.data.response);
+                    ajaxEmails.push(resp.data.response);
+                    //per stamparle a ciclo completo insieme, verifico che l'array di email generato sia uguale a 10
+                    if(ajaxEmails.length === 10){
+                        // sono 10? finito il ciclo push nell'array che verrà stampato
+                        this.randomEmailList.push(...ajaxEmails);
+                    }
+                });
+        }
 
-    },
-    methods : {
-        
-    },
-    mounted : {
-
-    },
+    }
 
 })

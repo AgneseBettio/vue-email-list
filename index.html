@@ -10,14 +10,22 @@
     <!-- CDN vue -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 
-    <title>Document</title>
+    <title>Generatore indirizzi email</title>
 </head>
+
 <body>
 
-    <div class="root">
+    <div id="root">
+        <h2>10 email random</h2>
+        <ul>
+            <li v-for="email in randomEmailList" v-if="">
+                {{email}}
+            </li>
+        </ul>
 
     </div>
     <!-- link a script js personale -->
     <script src="scripts/script.js"></script>
+
 </body>
 </html>
